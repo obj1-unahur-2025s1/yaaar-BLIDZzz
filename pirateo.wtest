@@ -1,0 +1,23 @@
+import barcos.*
+
+describe "Arghh" {
+    const tesoroIslaEscarlata = new Leyenda(objetosRequeridos = "grog")
+    const perlaNegra = new Barco(mision = tesoroIslaEscarlata, capacidad = 20)
+    const barbaNegra = new Pirata(elQueMeInvito = null,       barco = perlaNegra, inventario = ["llave", "brujula", "mapa", "navaja", "grog", "pipa", "pipa", "loro", "catalejo", "grog"])
+    const john       = new Pirata(elQueMeInvito = barbaNegra, barco = perlaNegra, inventario = ["navaja", "grog", "mapa", "mapa", "catalejo", "brujula", "botas", "loro", "cuchillo", "cinturon"])
+    const erick      = new Pirata(elQueMeInvito = barbaNegra, barco = perlaNegra, inventario = ["brujula", "pipa", "pistola", "cuchillo", "grog", "loro", "pistola", "pistola", "loro", "pipa"])
+    const ferr       = new Pirata(elQueMeInvito = john,       barco = perlaNegra, inventario = ["navaja", "pipa", "grog", "grog", "grog", "grog", "pipa", "cuchillo", "mapa", "navaja"])
+    const phill      = new Pirata(elQueMeInvito = barbaNegra, barco = perlaNegra, inventario = ["mapa", "loro", "catalejo", "catalejo", "grog", "grog", "loro", "pipa", "navaja", "loro"])
+    const hall       = new Pirata(elQueMeInvito = ferr,       barco = perlaNegra, inventario = ["navaja", "grog", "pistola", "abano", "abano", "abano", "pipa", "mapa", "mapa", "brujula"])
+    const sinBarba   = new Pirata(elQueMeInvito = phill,      barco = perlaNegra, inventario = ["grog", "catalejo", "navaja", "navaja", "grog", "pipa", "loro", "catalejo", "brujula", "mapa"])
+    const sheer      = new Pirata(elQueMeInvito = barbaNegra, barco = perlaNegra, inventario = ["llave", "grog", "mapa", "pistola", "pistola", "espada", "espada", "botas", "pendiente", "anillo"])
+    const lock       = new Pirata(elQueMeInvito = ferr,       barco = perlaNegra, inventario = ["pipa", "abano", "grog", "pendiente", "anillo", "anillo", "pistola", "catalejo", "loro", "pipa"])
+    const alric      = new Pirata(elQueMeInvito = barbaNegra, barco = perlaNegra, inventario = ["catalejo", "loro", "brujula", "cuchillo", "loro", "grog", "dienteOro", "pataPalo", "pipa", "loro"])
+
+    method initialize() {
+        [barbaNegra, john, erick, ferr, phill, hall, sinBarba, sheer, lock, alric].forEach{x=>perlaNegra.agregarPirata(x)}
+    }
+    test "Desafio" {
+        assert.equals(barbaNegra, perlaNegra.elQueSeRepiteMas())
+    }
+}

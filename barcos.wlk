@@ -154,6 +154,8 @@ class Pirata {
     method nuevoBarco(unBarco) {barco = unBarco}
 
     method abandonarBarco() {barco = null}
+    
+    method elQueMeInvito() = elQueMeInvito
 }
 
 
